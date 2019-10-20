@@ -8,6 +8,7 @@ DataFormatsGeometrySurface_LOC_FLAGS_IGNORE_MODULE_FILE:=LocalErrorBaseExtended.
 DataFormatsSiStripCluster_LOC_FLAGS_IGNORE_MODULE_FILE:=SiStripClusterTools.h
 # Cyclic dep DataFormats/SiStripDetId <-> DataFormats/TrackerCommon
 #DataFormatsSiStripDetId_LOC_FLAGS_IGNORE_MODULE_FILE+=StripSubdetector.h
+# Cyclic dep DataFormats/PatCandidates <-> DataFormats/TauReco
 
 ##########################################################################
 ### To avoid ERROR:
@@ -36,11 +37,10 @@ DataFormatsTrackerRecHit2D_LOC_FLAGS_IGNORE_MODULE_FILE+=SiPixelRecHitCollection
 #   typedef PFParticleRefVector::iterator pfParticle_iterator;
 DataFormatsParticleFlowReco_LOC_FLAGS_IGNORE_MODULE_FILE:=PFSimParticleFwd.h PFParticleFwd.h
 
-
-CalibCalorimetryEcalCorrelatedNoiseAnalysisAlgos_CXXMODULES:=1
-CalibFormatsCaloObjects_CXXMODULES:=1
-CalibrationEcalTBTools_CXXMODULES:=1
-CondFormatsL1TObjects_CXXMODULES:=1
+CalibCalorimetryEcalCorrelatedNoiseAnalysisAlgos_CXXMODULES:=0
+CalibFormatsCaloObjects_CXXMODULES:=0
+CalibrationEcalTBTools_CXXMODULES:=0
+CondFormatsL1TObjects_CXXMODULES:=0
 DataFormatsBeamSpot_CXXMODULES:=1
 DataFormatsCaloRecHit_CXXMODULES:=1
 DataFormatsCaloTowers_CXXMODULES:=1
@@ -110,46 +110,60 @@ DataFormatsTrajectorySeed_CXXMODULES:=1
 DataFormatsTrajectoryState_CXXMODULES:=1
 DataFormatsVertexReco_CXXMODULES:=1
 DataFormatsWrappedStdDictionaries_CXXMODULES:=1
-FastSimDataFormatsNuclearInteractions_CXXMODULES:=1
-FastSimDataFormatsPileUpEvents_CXXMODULES:=1
-FireworksTableWidget_CXXMODULES:=1
+FastSimDataFormatsNuclearInteractions_CXXMODULES:=0
+FastSimDataFormatsPileUpEvents_CXXMODULES:=0
+FireworksTableWidget_CXXMODULES:=0
 FWCoreCommon_CXXMODULES:=1
 FWCoreFWLite_CXXMODULES:=1
 FWCoreMessageLogger_CXXMODULES:=1
 FWCoreTFWLiteSelectorTest_CXXMODULES:=1
 FWCoreTFWLiteSelector_CXXMODULES:=1
-IOPoolTFileAdaptor_CXXMODULES:=1
-IORawDataHcalTBInputService_CXXMODULES:=1
-PhysicsToolsKinFitter_CXXMODULES:=1
-PhysicsToolsRooStatsCms_CXXMODULES:=1
-SimDataFormatsCaloHit_CXXMODULES:=1
-SimDataFormatsDigiSimLinks_CXXMODULES:=1
-SimDataFormatsEncodedEventId_CXXMODULES:=1
-SimDataFormatsForward_CXXMODULES:=1
-SimDataFormatsGEMDigiSimLink_CXXMODULES:=1
-SimDataFormatsGeneratorProducts_CXXMODULES:=1
-SimDataFormatsHcalTestBeam_CXXMODULES:=1
-SimDataFormatsHTXS_CXXMODULES:=1
-SimDataFormatsPileupSummaryInfo_CXXMODULES:=1
-SimDataFormatsRandomEngine_CXXMODULES:=1
-SimDataFormatsRPCDigiSimLink_CXXMODULES:=1
-SimDataFormatsTrackerDigiSimLink_CXXMODULES:=1
-SimDataFormatsTrackingAnalysis_CXXMODULES:=1
-SimDataFormatsTrackingHit_CXXMODULES:=1
-SimDataFormatsTrack_CXXMODULES:=1
-SimDataFormatsValidationFormats_CXXMODULES:=1
-SimDataFormatsVertex_CXXMODULES:=1
-TBDataFormatsEcalTBObjects_CXXMODULES:=1
-TBDataFormatsHcalTBObjects_CXXMODULES:=1
-ValidationRecoParticleFlow_CXXMODULES:=1
+IOPoolTFileAdaptor_CXXMODULES:=0
+IORawDataHcalTBInputService_CXXMODULES:=0
+PhysicsToolsKinFitter_CXXMODULES:=0
+PhysicsToolsRooStatsCms_CXXMODULES:=0
+SimDataFormatsCaloHit_CXXMODULES:=0
+SimDataFormatsDigiSimLinks_CXXMODULES:=0
+SimDataFormatsEncodedEventId_CXXMODULES:=0
+SimDataFormatsForward_CXXMODULES:=0
+SimDataFormatsGEMDigiSimLink_CXXMODULES:=0
+SimDataFormatsGeneratorProducts_CXXMODULES:=0
+SimDataFormatsHcalTestBeam_CXXMODULES:=0
+SimDataFormatsHTXS_CXXMODULES:=0
+SimDataFormatsPileupSummaryInfo_CXXMODULES:=0
+SimDataFormatsRandomEngine_CXXMODULES:=0
+SimDataFormatsRPCDigiSimLink_CXXMODULES:=0
+SimDataFormatsTrackerDigiSimLink_CXXMODULES:=0
+SimDataFormatsTrackingAnalysis_CXXMODULES:=0
+SimDataFormatsTrackingHit_CXXMODULES:=0
+SimDataFormatsTrack_CXXMODULES:=0
+SimDataFormatsValidationFormats_CXXMODULES:=0
+SimDataFormatsVertex_CXXMODULES:=0
+TBDataFormatsEcalTBObjects_CXXMODULES:=0
+TBDataFormatsHcalTBObjects_CXXMODULES:=0
+ValidationRecoParticleFlow_CXXMODULES:=0
 
-DataFormatsEgammaCandidates_CXXMODULES:=0
-DataFormatsEgammaReco_CXXMODULES:=0
+DataFormatsEgammaCandidates_CXXMODULES:=1
+DataFormatsEgammaReco_CXXMODULES:=1
+
+###########################################################################
+# In file included from /cvmfs/cms-ib.cern.ch/nweek-02598/slc7_amd64_gcc820/external/clhep/2.4.0.0-nmpfii/include/CLHEP/Geometry/Point3D.h:19:
+# /cvmfs/cms-ib.cern.ch/nweek-02598/slc7_amd64_gcc820/external/clhep/2.4.0.0-nmpfii/include/CLHEP/Vector/ThreeVector.h:41:7: error: redefinition of 'Hep3Vector'
+# class Hep3Vector {
+#       ^
+#       /cvmfs/cms-ib.cern.ch/nweek-02598/slc7_amd64_gcc820/external/clhep/2.4.0.0-nmpfii/include/CLHEP/Vector/LorentzVector.h:30:10: note: '/cvmfs/cms-ib.cern.ch/nweek-02598/slc7_amd64_gcc820/external/clhep/2.4.0.0-nmpfii/include/CLHEP/Vector/ThreeVector.h' included multiple times, additional include site here
+#       #include "CLHEP/Vector/ThreeVector.h"
 DataFormatsJetReco_CXXMODULES:=0
-DataFormatsMuonReco_CXXMODULES:=0
-DataFormatsParticleFlowCandidate_CXXMODULES:=0
+
+DataFormatsMuonReco_CXXMODULES:=1
+DataFormatsParticleFlowCandidate_CXXMODULES:=1
+
+###########################################################################
+# Invalid declaration chain: clang::Redeclarable<clang::FunctionDecl>::redecl_iterator::operator++()
+# (this will be fixed automatically when we upgrade llvm in root)
 DataFormatsParticleFlowReco_CXXMODULES:=0
-DataFormatsRecoCandidate_CXXMODULES:=0
+
+DataFormatsRecoCandidate_CXXMODULES:=1
 SimDataFormatsJetMatching_CXXMODULES:=0
 
 AlignmentCocoaDaq_CXXMODULES:=0
@@ -195,37 +209,53 @@ CondFormatsRunInfo_CXXMODULES:=0
 CondFormatsSiPhase2TrackerObjects_CXXMODULES:=0
 CondFormatsSiPixelObjects_CXXMODULES:=0
 CondFormatsSiStripObjects_CXXMODULES:=0
+CondFormatsSerialization_CXXMODULES:=0
 CondToolsBTau_CXXMODULES:=0
-DataFormatsAlignment_CXXMODULES:=0
+DataFormatsAlignment_CXXMODULES:=1
 DataFormatsBTauReco_CXXMODULES:=0
-DataFormatsCastorReco_CXXMODULES:=0
-DataFormatsCSCDigi_CXXMODULES:=0
-DataFormatsCTPPSReco_CXXMODULES:=0
-DataFormatsEgammaTrackReco_CXXMODULES:=0
-DataFormatsFWLite_CXXMODULES:=0
-DataFormatsGEMDigi_CXXMODULES:=0
-DataFormatsHcalIsolatedTrack_CXXMODULES:=0
-DataFormatsHeavyIonEvent_CXXMODULES:=0
-DataFormatsHGCDigi_CXXMODULES:=0
-DataFormatsHGCRecHit_CXXMODULES:=0
+DataFormatsCastorReco_CXXMODULES:=1
+DataFormatsCSCDigi_CXXMODULES:=1
+DataFormatsCTPPSReco_CXXMODULES:=1
+DataFormatsEgammaTrackReco_CXXMODULES:=1
+DataFormatsFWLite_CXXMODULES:=1
+DataFormatsGEMDigi_CXXMODULES:=1
+DataFormatsHcalIsolatedTrack_CXXMODULES:=1
+DataFormatsHeavyIonEvent_CXXMODULES:=1
+DataFormatsHGCDigi_CXXMODULES:=1
+DataFormatsHGCRecHit_CXXMODULES:=1
+
+###########################################################################
+# Will be fixed with new LLVM upgrade
+# rootcling: /build/cmsbld/jenkins/workspace/build-any-ib/w/BUILD/slc7_amd64_gcc820/lcg/root/6.17.01-ieknja/root-6.17.01/interpreter/llvm/src/tools/clang/include/clang/AST/Redeclarable.h:258: clang::Redeclarable<decl_type>::redecl_iterator& clang::Redeclarable<decl_type>::redecl_iterator::operator++() [with decl_type = clang::FunctionDecl]: Assertion `0 && "Passed first decl twice, invalid redecl chain!"' failed.
 DataFormatsHLTReco_CXXMODULES:=0
-DataFormatsL1CSCTrackFinder_CXXMODULES:=0
-DataFormatsL1TCalorimeter_CXXMODULES:=0
-DataFormatsL1TGlobal_CXXMODULES:=0
-DataFormatsL1THGCal_CXXMODULES:=0
-DataFormatsL1TMuon_CXXMODULES:=0
-DataFormatsL1TrackTrigger_CXXMODULES:=0
-DataFormatsLuminosity_CXXMODULES:=0
+
+DataFormatsL1CSCTrackFinder_CXXMODULES:=1
+DataFormatsL1TCalorimeter_CXXMODULES:=1
+DataFormatsL1TGlobal_CXXMODULES:=1
+DataFormatsL1THGCal_CXXMODULES:=1
+DataFormatsL1TMuon_CXXMODULES:=1
+DataFormatsL1TrackTrigger_CXXMODULES:=1
+DataFormatsLuminosity_CXXMODULES:=1
+
+###########################################################################
+# Will be fixed with new LLVM upgrade
+# rootcling: /build/cmsbld/jenkins/workspace/build-any-ib/w/BUILD/slc7_amd64_gcc820/lcg/root/6.17.01-ieknja/root-6.17.01/interpreter/llvm/src/tools/clang/include/clang/AST/Redeclarable.h:258: clang::Redeclarable<decl_type>::redecl_iterator& clang::Redeclarable<decl_type>::redecl_iterator::operator++() [with decl_type = clang::FunctionDecl]: Assertion `0 && "Passed first decl twice, invalid redecl chain!"' failed.
 DataFormatsMETReco_CXXMODULES:=0
-DataFormatsMuonSeed_CXXMODULES:=0
-DataFormatsNanoAOD_CXXMODULES:=0
+
+DataFormatsMuonSeed_CXXMODULES:=1
+DataFormatsNanoAOD_CXXMODULES:=1
+
+###########################################################################
+# Will be fixed with next LLVM release
+# rootcling: /build/cmsbld/jenkins/workspace/build-any-ib/w/BUILD/slc7_amd64_gcc820/lcg/root/6.17.01-ieknja/root-6.17.01/interpreter/llvm/src/tools/clang/include/clang/AST/Redeclarable.h:258: clang::Redeclarable<decl_type>::redecl_iterator& clang::Redeclarable<decl_type>::redecl_iterator::operator++() [with decl_type = clang::FunctionDecl]: Assertion `0 && "Passed first decl twice, invalid redecl chain!"' failed.
 DataFormatsPatCandidates_CXXMODULES:=0
-DataFormatsProtonReco_CXXMODULES:=0
-DataFormatsRPCDigi_CXXMODULES:=0
-DataFormatsRPCRecHit_CXXMODULES:=0
-DataFormatsSiStripCommon_CXXMODULES:=0
-DataFormatsTauReco_CXXMODULES:=0
-DataFormatsV0Candidate_CXXMODULES:=0
+
+DataFormatsProtonReco_CXXMODULES:=1
+DataFormatsRPCDigi_CXXMODULES:=1
+DataFormatsRPCRecHit_CXXMODULES:=1
+DataFormatsSiStripCommon_CXXMODULES:=1
+DataFormatsTauReco_CXXMODULES:=1
+DataFormatsV0Candidate_CXXMODULES:=1
 DPGAnalysisSiStripTools_CXXMODULES:=0
 EgammaAnalysisElectronTools_CXXMODULES:=0
 EventFilterGEMRawToDigi_CXXMODULES:=0
